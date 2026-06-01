@@ -1,14 +1,20 @@
+![Kubernetes](https://img.shields.io/badge/Kubernetes-K3s-blue)
+![NetBox](https://img.shields.io/badge/IPAM-NetBox-purple)
+![LibreNMS](https://img.shields.io/badge/Monitoring-LibreNMS-green)
+![Python](https://img.shields.io/badge/Automation-Python-yellow)
+![Status](https://img.shields.io/badge/status-lab-orange)
+
 # NetBox NetOps Discovery Lab
 
 Pipeline de descoberta leve, controle de IPAM e enriquecimento progressivo de ativos usando **NetBox**, **LibreNMS**, **K3s** e **Python**.
 
-> Projeto de laboratório voltado para NetOps/SecOps, criado para estudar visibilidade de ativos, descoberta controlada por VLAN, integração SNMP e enriquecimento via WinRM.
+> Projeto de laboratório voltado para NetOps/SecOps, criado para estudar visibilidade de ativos, descoberta controlada por VLAN, integração SNMP, enriquecimento via WinRM e modelagem de inventário no NetBox.
 
 ---
 
 ## Visão geral
 
-Em muitos ambientes de infraestrutura e segurança, uma pergunta simples pode ser difícil de responder com precisão:
+Em muitos ambientes de infraestrutura, redes e segurança, uma pergunta simples pode ser difícil de responder com precisão:
 
 > Quais IPs estão realmente em uso nas minhas redes?
 
@@ -27,9 +33,7 @@ A solução usa:
 
 ## Arquitetura
 
-> Substituir a imagem abaixo por um diagrama próprio do projeto.
-
-![Arquitetura do projeto](./images/architecture.png)
+![Arquitetura do projeto](./images/arquitetura.png)
 
 ```text
 VLANs / Redes conhecidas
@@ -139,7 +143,7 @@ Portas do perfil seguro:
 5986  WinRM HTTPS
 ```
 
-Exemplo de resultado:
+Exemplo de resultado esperado:
 
 ```text
 192.168.100.10 -> Linux/Unix, TTL 64, portas 22/80/443
@@ -231,6 +235,32 @@ Os scripts atualizam campos personalizados para rastrear descoberta e enriquecim
 
 ---
 
+## Screenshots do laboratório
+
+### NetBox IPAM
+
+![NetBox IPAM](./images/Ipam-netbox.png)
+
+### Virtual Machines no NetBox
+
+![NetBox Virtual Machines](./images/vms-netbox.png)
+
+### DCIM Devices no NetBox
+
+![NetBox DCIM Devices](./images/devices-netbox.png)
+
+### Jobs no Kubernetes
+
+![Kubernetes Jobs](./images/log-jobs.png)
+
+### Discovery agendado de IPAM
+
+![Scheduled IPAM Discovery](./images/logs-ipamschedule.png)
+
+> Os logs brutos não foram adicionados ao repositório para evitar exposição de informações de ambiente, tokens, hostnames ou dados sensíveis. Quem quiser reproduzir o laboratório pode executar os manifests e gerar seus próprios logs localmente.
+
+---
+
 ## Estrutura sugerida do repositório
 
 ```text
@@ -239,18 +269,13 @@ netbox-netops-discovery/
 ├── LICENSE
 ├── .gitignore
 ├── docs/
-│   ├── architecture.md
-│   ├── lab-installation.md
-│   ├── discovery-strategy.md
-│   ├── snmp-strategy.md
-│   ├── winrm-enrichment.md
-│   └── security-considerations.md
 ├── images/
-│   ├── architecture.png
-│   ├── netbox-ipam.png
-│   ├── netbox-vms.png
-│   ├── librenms-devices.png
-│   └── jobs-logs.png
+│   ├── arquitetura.png
+│   ├── Ipam-netbox.png
+│   ├── vms-netbox.png
+│   ├── devices-netbox.png
+│   ├── log-jobs.png
+│   └── logs-ipamschedule.png
 ├── k8s/
 │   ├── netbox/
 │   ├── librenms/
@@ -262,32 +287,7 @@ netbox-netops-discovery/
 │   ├── netops-sync/
 │   └── netbox-bootstrap/
 └── examples/
-    ├── ranges.csv
-    ├── sample-output.md
-    └── custom-fields.json
 ```
-
----
-
-## Exemplos de imagens para adicionar depois
-
-Adicionar prints ou diagramas nestes pontos:
-
-### NetBox IPAM
-
-![NetBox IPAM](./images/netbox-ipam.png)
-
-### Virtual Machines no NetBox
-
-![NetBox Virtual Machines](./images/netbox-vms.png)
-
-### LibreNMS Devices
-
-![LibreNMS Devices](./images/librenms-devices.png)
-
-### Logs dos CronJobs
-
-![Kubernetes Jobs Logs](./images/jobs-logs.png)
 
 ---
 
@@ -387,7 +387,8 @@ Evitar:
 - Uso de `nmap -A`, `-O`, `-sV` amplo ou scripts NSE por padrão;
 - Scan em redes de fornecedores, clientes ou ambientes críticos sem autorização;
 - Senhas e tokens em arquivos versionados;
-- WinRM Basic/HTTP em produção.
+- WinRM Basic/HTTP em produção;
+- Publicação de logs brutos com dados sensíveis.
 
 Preferir:
 
@@ -397,8 +398,8 @@ Preferir:
 - SNMPv3 em produção;
 - WinRM com Kerberos/domínio ou HTTPS;
 - Secrets protegidos;
-- Logs auditáveis;
-- Revisão antes de habilitar novas redes.
+- Revisão antes de habilitar novas redes;
+- Imagens e outputs sanitizados em documentação pública.
 
 ---
 
@@ -463,6 +464,23 @@ Classification: pending review
 
 ---
 
+## Evidências
+
+Este repositório inclui apenas algumas imagens selecionadas do laboratório.
+
+Não foram incluídos:
+
+- Logs brutos;
+- Tokens;
+- Secrets;
+- Senhas;
+- Hostnames internos;
+- Outputs completos de ambiente.
+
+Essa decisão reduz risco de exposição de dados e mantém o repositório focado na arquitetura e no conceito técnico.
+
+---
+
 ## Disclaimer
 
 Este projeto é destinado a laboratório, estudo, portfólio e ambientes controlados.
@@ -474,4 +492,3 @@ Não execute descoberta de rede em ambientes que você não administra ou não t
 ## Autor
 
 Criado como laboratório de estudo em NetOps/SecOps, automação de infraestrutura e visibilidade de ativos.
-
