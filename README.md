@@ -237,6 +237,14 @@ Os scripts atualizam campos personalizados para rastrear descoberta e enriquecim
 
 ## Screenshots do laboratório
 
+As imagens abaixo são exemplos visuais do laboratório em execução. Logs brutos, tokens, senhas, hostnames internos e saídas sensíveis não são incluídos no repositório.
+
+> Observação: os caminhos das imagens são sensíveis a maiúsculas/minúsculas no GitHub. Mantenha os nomes exatamente como estão na pasta `images/`.
+
+### Arquitetura
+
+![Arquitetura](./images/arquitetura.png)
+
 ### NetBox IPAM
 
 ![NetBox IPAM](./images/Ipam-netbox.png)
@@ -256,40 +264,6 @@ Os scripts atualizam campos personalizados para rastrear descoberta e enriquecim
 ### Discovery agendado de IPAM
 
 ![Scheduled IPAM Discovery](./images/logs-ipamschedule.png)
-
-> Os logs brutos não foram adicionados ao repositório para evitar exposição de informações de ambiente, tokens, hostnames ou dados sensíveis. Quem quiser reproduzir o laboratório pode executar os manifests e gerar seus próprios logs localmente.
-
----
-
-## Estrutura sugerida do repositório
-
-```text
-netbox-netops-discovery/
-├── README.md
-├── LICENSE
-├── .gitignore
-├── docs/
-├── images/
-│   ├── arquitetura.png
-│   ├── Ipam-netbox.png
-│   ├── vms-netbox.png
-│   ├── devices-netbox.png
-│   ├── log-jobs.png
-│   └── logs-ipamschedule.png
-├── k8s/
-│   ├── netbox/
-│   ├── librenms/
-│   ├── netops-discovery/
-│   └── netops-sync/
-├── scripts/
-│   ├── netbox-lite-discovery/
-│   ├── netbox-winrm-enrichment/
-│   ├── netops-sync/
-│   └── netbox-bootstrap/
-└── examples/
-```
-
----
 
 ## Instalação resumida
 
