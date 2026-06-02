@@ -239,31 +239,29 @@ Os scripts atualizam campos personalizados para rastrear descoberta e enriquecim
 
 As imagens abaixo são exemplos visuais do laboratório em execução. Logs brutos, tokens, senhas, hostnames internos e saídas sensíveis não são incluídos no repositório.
 
-> Observação: os caminhos das imagens são sensíveis a maiúsculas/minúsculas no GitHub. Mantenha os nomes exatamente como estão na pasta `images/`.
-
 ### Arquitetura
 
-![Arquitetura](./images/arquitetura.png)
+![Arquitetura](./images/architecture.png)
 
 ### NetBox IPAM
 
-![NetBox IPAM](./images/Ipam-netbox.png)
+![NetBox IPAM](./images/netbox-ipam.png)
 
 ### Virtual Machines no NetBox
 
-![NetBox Virtual Machines](./images/vms-netbox.png)
+![NetBox Virtual Machines](./images/netbox-virtual-machines.png)
 
 ### DCIM Devices no NetBox
 
-![NetBox DCIM Devices](./images/devices-netbox.png)
+![NetBox DCIM Devices](./images/netbox-dcim-devices.png)
 
 ### Jobs no Kubernetes
 
-![Kubernetes Jobs](./images/log-jobs.png)
+![Kubernetes Jobs](./images/kubernetes-jobs.png)
 
 ### Discovery agendado de IPAM
 
-![Scheduled IPAM Discovery](./images/logs-ipamschedule.png)
+![Scheduled IPAM Discovery](./images/scheduled-ipam-log.png)
 
 ## Instalação resumida
 
