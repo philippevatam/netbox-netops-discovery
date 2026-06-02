@@ -243,6 +243,18 @@ As imagens abaixo são exemplos visuais do laboratório em execução. Logs brut
 
 ![Arquitetura](./images/architecture.png)
 
+### CronJobs configurados
+
+![Kubernetes CronJobs](./images/kubernetes-cronjobs.png)
+
+### Jobs criados automaticamente
+
+![Discovery Scheduled Jobs](./images/discovery-scheduled-jobs.png)
+
+### Resultado do discovery no IPAM
+
+![IPAM Discovery Result](./images/ipam-discovery-result.png)
+
 ### NetBox IPAM
 
 ![NetBox IPAM](./images/netbox-ipam.png)
@@ -255,13 +267,9 @@ As imagens abaixo são exemplos visuais do laboratório em execução. Logs brut
 
 ![NetBox DCIM Devices](./images/netbox-dcim-devices.png)
 
-### Jobs no Kubernetes
+### WinRM enrichment
 
-![Kubernetes Jobs](./images/kubernetes-jobs.png)
-
-### Discovery agendado de IPAM
-
-![Scheduled IPAM Discovery](./images/scheduled-ipam-log.png)
+![WinRM Enrichment Result](./images/winrm-enrichment-result.png)
 
 ## Instalação resumida
 
